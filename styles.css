@@ -1,0 +1,324 @@
+/* Variables generales  */
+:root {
+    --principal: #5c8c6e; 
+    --principal-dark: #3d6b50;
+    --principal-light: #e8f0e4; 
+    --header-color: #e8a898;
+    --texto: #5c8c6e;    
+    --fondo: #FFFEFD;    
+    --color-tarjetas: #FFFEFD;
+    --texto-sec: #0F1600;
+    --border: #dbadaed8;
+    --star-color:#f59e0b;     
+    --error: #c21b1b;      
+    --radius-small: 8px;
+    --radius-med: 14px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 2px 8px #0000000f;
+    --shadow: 0 12px 32px #e8a898;
+    --transition: 0.2s ease;
+}
+
+/* Reset básico */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER Y MARCA */
+header {
+    background-color: var(--header-color);
+    border-bottom: 1px solid var(--border);
+    padding: 30px 0 28px; 
+    margin-bottom: 30px;
+}
+
+.header-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Alineación logo y nombre */
+.header-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+    margin-bottom: 5px;
+}
+
+.header-brand i {
+    font-size: 2.5rem;
+    color: var(--principal);
+}
+
+h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem; 
+    font-weight: 800;
+    color: var(--texto);
+    margin-bottom: 0;
+}
+
+.header-subtitle {
+    font-size: 1rem;
+    color: #2D4536;
+}
+
+main {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    flex: 1;
+}
+
+/* BUSCADOR */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--fondo);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-med);
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-sm); 
+}
+
+/* Efecto de foco para el contenedor del buscador */
+.search-container:focus-within {
+    border-color: var(--principal);
+    box-shadow: 0 0 0 3px var(--principal-light);
+}
+
+#search-input {
+    flex: 1; 
+    border: none;
+    outline: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--texto);
+}
+
+.search-icon {
+    color: #b0adb8;
+}
+
+.clear-btn {
+    cursor: pointer;
+    border: none;
+    background: var(--border);
+    color: var(--texto-sec);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LAYOUT Y FILTROS */
+.layout-container {
+    display: flex;
+    gap: 30px;
+}
+
+.filters {
+    width: 220px;
+}
+
+/* Panel de filtros */
+.filter-panel {
+    background: var(--color-tarjetas);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: sticky;
+    top: 20px;
+}
+
+.filter-title {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--texto-sec);
+    margin: 15px 0 10px;
+}
+
+/* Listas de categorías y opciones de filtro */
+.category-list, .category-filter {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.filter-option {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--texto-sec);
+    border-radius: var(--radius-small);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background var(--transition), color var(--transition);
+}
+
+/* Estilos para la opción activa */
+.filter-option.active {
+    color: var(--principal);
+    font-weight: 600;
+    background: var(--principal-light);
+}
+
+/* circulo para la opción activa */
+.filter-option::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+}
+
+/* Estilos para el círculo de la opción activa */
+.filter-option.active::before {
+    background: var(--principal);
+    border-color: var(--principal);
+}
+
+/* PRODUCTOS */
+.products-area {
+    flex: 1;
+    min-width: 0;
+}
+
+#products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: var(--color-tarjetas);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 15px;
+    transition: 0.3s;
+}
+
+/* es el efecto hover para las tarjetas de producto */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow); 
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card h2 {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--texto-sec);
+    height: 2.6em;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+/*ETIQUETAS Y COLORES DE CATEGORÍAS*/
+.category-tag {
+    display: inline-block;
+    background: var(--principal-light);
+    color: var(--principal);
+    padding: 3px 10px;
+    border-radius: 9999px; 
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    width: fit-content;
+    margin-bottom: 8px;
+}
+
+.category-tag[data-category="beauty"]              { background: #fde8e8; color: #9b3a3a; } 
+.category-tag[data-category="fragrances"]          { background: #fdecd6; color: #8c4a1e; } 
+.category-tag[data-category="furniture"]           { background: #e8f0e4; color: #3d6b50; } 
+.category-tag[data-category="groceries"]           { background: #d6f0e0; color: #1e6640; } 
+.category-tag[data-category="laptops"]             { background: #e4e0f0; color: #4a3a7a; } 
+.category-tag[data-category="home-decoration"]     { background: #fdf0c8; color: #7a5010; } 
+.category-tag[data-category="kitchen-accessories"] { background: #fad8cc; color: #8c3020; } 
+.category-tag[data-category="mens-shirts"]         { background: #d8eaf0; color: #1e5068; } 
+.category-tag[data-category="mens-shoes"]          { background: #ede0d4; color: #6b3a20; } 
+.category-tag[data-category="mens-watches"]        { background: #d8e8d0; color: #2a5030; } 
+.category-tag[data-category="mobile-accessories"]   { background: #e0d8f0; color: #4a3068; }
+
+/* la info adicional de producto */
+.meta-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: var(--principal);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.rating {
+    color: var(--star-color);
+    font-size: 0.8rem;
+}
+
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    font-size: 0.8rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .layout-container {
+        flex-direction: column;
+    }
+    
+    .filters {
+        width: 100%;
+    }
+
+    .filter-panel {
+        position: static;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .category-list, .category-filter {
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

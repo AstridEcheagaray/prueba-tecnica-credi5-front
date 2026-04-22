@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos | Credi5</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-brand">
+            <i class="fa-solid fa-burst"></i>
+            <h1>Lumé</h1>
+        </div>
+            <p class="header-subtitle">Descubre lo que brilla para ti</p>
+        </div>
+    </header>
+
+
+    <main>
+
+          
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="search-input" placeholder="Buscar productos..." />
+            <button id="clear-button" class="clear-btn" style="display: none;">✕</button>
+            
+        </div>
+        
+
+        <div class="layout-container">
+            <aside class="filters">
+                <div class="filter-panel">
+
+                    <p class="filter-title">Categoría</p>
+                    <ul id="category-filter" class="category-list">
+                        <!-- Las categorias se van a ir cargando -->
+                        <li class="filter-option active" data-value="">TODAS</li>
+
+                    </ul>
+
+                    <p class="filter-title">Precio</p>
+                    <ul id = "sort-select" class = "category-filter">
+                        <li class="filter-option active" data-value="">SIN ORDEN</li>
+                        <li class="filter-option" data-value="asc">MENOR A MAYOR</li>
+                        <li class="filter-option" data-value="desc">MAYOR A MENOR</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class = "products-area">
+                <!-- Mensajes de estado para carga, error o sin resultado -->
+                <div id="status-messages">
+                    <p id="estado-loading">Cargando productos...</p>
+                    <p id="estado-error" style="display:none; color:#ef4444;">
+                        Error al cargar los datos.
+                        <button id="retry-button">Reintentar</button>
+                    </p>
+                    <p id="estado-empty" style="display: none;">No se encontraron productos.</p>
+                </div>
+
+                <!-- Contador de resultados -->
+                <p id="results-count" class="results-count" style="display: none;"></p>
+
+                <!-- Contenedor de productos -->
+                <div id="products-container"></div>
+            </div>
+            
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Catálogo de Productos · Credi5</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
